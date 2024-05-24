@@ -3,6 +3,8 @@ version: "3"
 networks:
   gitea:
     external: false
+  proxy-manager_default:
+    external: true
 
 services:
   server:
@@ -20,6 +22,7 @@ services:
     restart: always
     networks:
       - gitea
+      - proxy-manager_default
     volumes:
       - ./custom:/custom
       - ./gitea:/data
